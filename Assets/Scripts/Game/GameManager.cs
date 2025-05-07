@@ -11,11 +11,11 @@ public class GameManager : MonoBehaviour
     public List<PlayerData> players = new List<PlayerData>(); // รายชื่อผู้เล่นทั้งหมด
 
     public int currentPlayerIndex = 0; // ผู้เล่นที่กำลังเล่นอยู่ในรอบนี้
-    public float playerTurnTime = 120f; // เวลาต่อคน (2 นาที)
+    public float playerTurnTime; //= 120f; // เวลาต่อคน (2 นาที) ตั้งงเวลา
     private float currentTime; // ตัวจับเวลาของรอบ
     
     public int currentRound = 1; // รอบปัจจุบัน
-    public int maxRounds = 10;   // จำนวนรอบสูงสุด
+    public int maxRounds; //= 10;   // จำนวนรอบสูงสุด
     
     public const int MAX_PLAYERS = 6;
     public List<string> joinedPlayerNames = new List<string>(); // ผู้เล่นที่เข้ามาจริง
@@ -97,12 +97,9 @@ public class GameManager : MonoBehaviour
         currentTime -= Time.deltaTime;
 
         // อัปเดต UI ทุกเฟรม
-        UIManager.Instance.UpdateTurnInfo(
-            players[currentPlayerIndex].playerName,
-            currentPlayerIndex + 1,
-            players.Count,
-            currentTime
-        );
+        //UIManager.Instance.UpdateTurnInfo(players[currentPlayerIndex].playerName, currentPlayerIndex + 1, players.Count, currentTime);
+        UIManager.Instance.UpdateTurnInfo(players[currentPlayerIndex].playerName, currentPlayerIndex + 1, players.Count, currentTime, currentRound, maxRounds);
+
 
         if (currentTime <= 0f)
         {
@@ -127,6 +124,17 @@ public class GameManager : MonoBehaviour
         }
     }
     
+    /*void EndGame()
+    {
+        PlayerData winner = players[0];
+        foreach (var player in players)
+        {
+            if (player.money > winner.money)
+                winner = player;
+        }
+
+        Debug.Log($"เกมจบแล้ว! ผู้ชนะคือ {winner.playerName} ด้วยเงิน {winner.money} บาท");
+    }*/
     void EndGame()
     {
         PlayerData winner = players[0];
@@ -137,7 +145,11 @@ public class GameManager : MonoBehaviour
         }
 
         Debug.Log($"เกมจบแล้ว! ผู้ชนะคือ {winner.playerName} ด้วยเงิน {winner.money} บาท");
+
+        // เรียก UI จบเกมแบบลำดับ
+        UIManager.Instance.ShowEndSequence();
     }
+
     
     // ผู้เล่นทำการซื้อหุ้น
     public bool BuyStock(string companyName, int amount)

@@ -1,5 +1,5 @@
 
-/*using UnityEngine;
+using UnityEngine;
 
 public class CharacterCustomization : MonoBehaviour
 {
@@ -165,10 +165,12 @@ public class CharacterCustomization : MonoBehaviour
         // เปลี่ยน sprite ของหางตามตัวเลือกที่เลือก
         currentTailRenderer.sprite = tailOptions[index];
     }
-}*/
+    
+}
 
 
 
+/*
 using UnityEngine;
 
 /*
@@ -240,7 +242,7 @@ public class CharacterCustomization : MonoBehaviour
         currentTailRenderer.sprite = tailOptions[index];
     }
 }
-*/
+#1#
 
 
 public class CharacterCustomization : MonoBehaviour
@@ -309,3 +311,4 @@ public class CharacterCustomization : MonoBehaviour
         currentTailRenderer.sprite = tailOptions[index];
     }
 }
+*/

@@ -8,12 +8,12 @@ public class CompanyUIPanel : MonoBehaviour
     public TextMeshProUGUI companyNameText;
     // ตัวแสดงราคาหุ้นต่อ 1 หุ้น
     public TextMeshProUGUI pricePerStockText;
-    // ช่องให้กรอกจำนวนหุ้นที่จะซื้อหรือขาย
-    public TMP_InputField amountInputField;
     // แสดงราคารวมที่ต้องจ่ายหรือได้รับ
     public TextMeshProUGUI totalCostText;
     // แสดงจำนวนเงินของผู้เล่น
     public TextMeshProUGUI playerMoneyText;
+    // ช่องให้กรอกจำนวนหุ้นที่จะซื้อหรือขาย
+    public TMP_InputField amountInputField;
     // ปุ่มซื้อหุ้น
     public Button buyButton;
     // ปุ่มขายหุ้น
@@ -70,6 +70,7 @@ public class CompanyUIPanel : MonoBehaviour
             {
                 UpdatePlayerMoneyUI(); // อัปเดตจำนวนเงินหลังซื้อ
                 UpdateTotalCost(amountInputField.text); // อัปเดตราคารวมใหม่
+                amountInputField.text = ""; // ล้างค่าที่กรอกไว้
             }
         }
     }
@@ -84,6 +85,7 @@ public class CompanyUIPanel : MonoBehaviour
             {
                 UpdatePlayerMoneyUI(); // อัปเดตจำนวนเงินหลังขาย
                 UpdateTotalCost(amountInputField.text); // อัปเดตราคารวมใหม่
+                amountInputField.text = ""; // ล้างค่าที่กรอกไว้
             }
         }
     }
@@ -93,5 +95,6 @@ public class CompanyUIPanel : MonoBehaviour
     {
         this.gameObject.SetActive(false); // ปิด Panel นี้
         UIManager.Instance.ShowMainUI(true); // เปิด UI หลักกลับมา
+        amountInputField.text = ""; // ล้างค่าที่กรอกไว้
     }
 }

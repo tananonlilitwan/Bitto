@@ -1,7 +1,7 @@
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
-/*using UnityEngine;
-
-public class UIManager : MonoBehaviour
+public class UIManagers : MonoBehaviour
 {
     public CharacterCustomization characterCustomization;
 
@@ -52,8 +52,8 @@ public class UIManager : MonoBehaviour
     // ฟังก์ชันสำหรับเปลี่ยนทรงผม
     public void ChangeHair()
     {
-        currentHairIndex = (currentHairIndex + 1) % hairCount;
-        characterCustomization.SetHair(currentHairIndex);
+        //currentHairIndex = (currentHairIndex + 1) % hairCount;
+        //characterCustomization.SetHair(currentHairIndex);
     }
 
     // ฟังก์ชันสำหรับเปลี่ยนหู
@@ -132,27 +132,43 @@ public class UIManager : MonoBehaviour
     //ปุ่มเลือกชุดหัว:
     public void OnHeadSetButtonClicked(int index)
     {
-        characterCustomization.SetHeadSet(index);
+        //characterCustomization.SetHeadSet(index);
+        ChangeEar();
+        ChangeEyeWhite();
+        ChangeEyeBlack();
+        ChangeHead();
+        ChangeMouth();
+
     }
     
     //ปุ่มเลือกชุดตัว:
     public void OnBodySetButtonClicked(int index)
     {
-        characterCustomization.SetBodySet(index);
+        //characterCustomization.SetBodySet(index);
+        ChangeArm();
+        ChangeLeg();
+        ChangeTail();
+        ChangeBody();
     }
 
     //ปุ่มเลือกอุปกรณ์ตกแต่ง:
     public void OnAccessorySetButtonClicked(int index)
     {
-        characterCustomization.SetAccessorySet(index);
+        //characterCustomization.SetAccessorySet(index);
+    }
+    
+    public void OnFinishButtonClicked()
+    {
+        SceneManager.LoadScene("Join And Host");
     }
 
 
-}*/
+}
 
 
 
 
+/*
 using UnityEngine;
 
 /*public class UIManager : MonoBehaviour
@@ -198,7 +214,7 @@ using UnityEngine;
     public void PreviousBody() => OnBodySetButtonClicked(-1);
     public void NextAccessory() => OnAccessorySetButtonClicked(1);
     public void PreviousAccessory() => OnAccessorySetButtonClicked(-1);
-}*/
+}#1#
 
 using UnityEngine;
 
@@ -256,3 +272,4 @@ public class UIManagers : MonoBehaviour
         characterCustomization.SetAccessorySet(currentAccessoryIndex);
     }
 }
+*/
