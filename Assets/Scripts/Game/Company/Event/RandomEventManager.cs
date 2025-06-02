@@ -1,19 +1,3 @@
-/*using UnityEngine;
-
-public class RandomEventManager : MonoBehaviour
-{
-    // สุ่มอีเวนต์ให้บริษัทที่กำหนด
-    public void TriggerRandomEvent(Company company)
-    {
-        bool isGood = Random.value > 0.5f; // 50% ที่จะเป็นเหตุการณ์ดี
-        int change = Random.Range(10, 51) * (isGood ? 1 : -1); // เพิ่มหรือลดราคาหุ้น
-        string text = isGood ? "บริษัทมีกำไรสูง!" : "บริษัทขาดทุนหนัก!";
-
-        company.ApplyEvent(text, change, isGood); // ใช้เหตุการณ์นั้นกับบริษัท
-        Debug.Log($"{company.companyName} Event: {company.currentEventText} เปลี่ยนราคา {change} บาท");
-    }
-}*/
-
 using UnityEngine;
 
 public class RandomEventManager : MonoBehaviour
